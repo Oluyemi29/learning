@@ -1,0 +1,95 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="Login.css">
+    <style>
+        .error{
+            margin-left: 20px;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="log-in" id="log">
+        <h1 class="log-h">LOGIN FORM</h1>
+        <div class="but-g">
+            <button class="but-l">Login</button>
+            <button class="but-c" onclick="sign()">Sign Up</button>
+        </div>
+        <form action="Login-p.php" method="POST">
+        <input type="email" placeholder="Email address" class="inp-e" name="email" required><br>
+        <input type="password" placeholder="Password" class="inp-p" name="password" required><br>
+        <p class="forget-p"><a href="#">Forget Password?</a></p><br>
+        <?php if(isset($_GET['error'])) { ?>
+            <p class="error"><?php print $_GET['error']; ?></p>
+            <?php } ?>
+        <button type="submit" class="sub" name="submit">Login</button>
+        </form>
+        <p class="sign">Dont have an Account, <a href="#" onclick="up()">Sign up now</a></p>
+    </div>
+    </form>
+    
+    <div class="log-in log-in2" id="sign">
+        <h1 class="log-h log-h2">REGISTER</h1>
+        <div class="but-g2">
+            <button class="but-l but-l2" onclick="log()">Login</button>
+            <button class="but-c but-c2">Sign Up</button>
+        </div>
+        <form action="form.php" method="POST">
+        <input type="text" placeholder="Full Name" class="name" name="fname" required><br>
+        <input type="text" placeholder="Username" class="uname" name="uname" required><br>
+        <input type="email" placeholder="Email" class="inp-e2" name="email" required><br>
+        <input type="password" placeholder="Password" class="inp-p2" name="password" required><br>
+        <button type="submit" class="sub sub2" name="submit">Sign Up</button>
+        </form>
+        <p class="sign">Have an Account before, <a href="#" onclick="now()">Login now</a></p>
+    </div>
+    </form>
+    
+    
+
+    <script>
+        function sign(){
+            let signEl = document.getElementById("sign");
+            let logEl = document.getElementById("log");
+            if(signEl.style.display = "none"){
+            signEl.style.display = "block";
+            signEl.style.marginLeft = "480px";
+            }
+        }
+        function up(){
+            let signEl = document.getElementById("sign");
+            let logEl = document.getElementById("log");
+            if(signEl.style.display = "none"){
+            signEl.style.display = "block";
+            signEl.style.marginLeft = "480px";
+            }
+        }
+        function now(){
+            let signEl = document.getElementById("sign");
+            let logEl = document.getElementById("log");
+            if(signEl.style.display = "block"){
+            signEl.style.display = "none";
+            logEl.style.display = "block";
+            // signEl.style.marginLeft = "480px";
+                }
+        }
+        function log(){
+            let signEl = document.getElementById("sign");
+            let logEl = document.getElementById("log");
+            if(signEl.style.display = "block"){
+            signEl.style.display = "none";
+            logEl.style.display = "block";
+            // signEl.style.marginLeft = "480px";
+            }
+        }
+    </script>
+</body>
+</html>
